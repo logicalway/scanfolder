@@ -3,11 +3,11 @@
 *
 *	Scan Dossier
 *
-*	Copyright (c) 2013 Solutions Center
+*	Copyright (c) 2013 Logicalway
 *	Date creation : 01/04/13
-*	Derniere modification : 01/04/13
+*	Derniere modification : 12/06/19
 *
-*	http://www.bala-krishna.com/php-recursively-file-folder-scan
+*	source : http://www.bala-krishna.com/php-recursively-file-folder-scan
 *
 */
 
@@ -29,13 +29,9 @@ $exeption = array(
 				"",
 				".",
 				"..",
-				"_DEL",
 				"stats",
 				"cache",
-				"session",
-				"tmp",
-				"product",
-				"code",
+				"tmp"
 );
 
 
@@ -60,37 +56,22 @@ function list_recursive($dir,$niveau,$dirstart,$exeption,$tabf) {
 }
 
 
-
-
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>scan folder</title>
-
 <style type="text/css">
-
 </style>
-
 </head>
 <body>
 
 <?php
 
-
 $tab = list_recursive($dir,$niveau,$dir,$exeption,$tabf);
 
-/*
-echo '<pre>';
-print_r($tab);
-echo '</pre>';
-exit();
-*/
-
-
 rsort($tab);
-
 
 foreach( $tab as $keyF => $valueF ) {
 
@@ -102,7 +83,6 @@ foreach( $tab as $keyF => $valueF ) {
 	}
 
 }
-
 
 ?>
 
