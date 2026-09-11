@@ -29,9 +29,13 @@ $exeption = array(
 				"",
 				".",
 				"..",
+				"_DEL",
 				"stats",
+				"tmp",
 				"cache",
-				"tmp"
+				"session",
+				"product",
+				"code"
 );
 
 
@@ -40,7 +44,7 @@ function list_recursive($dir,$niveau,$dirstart,$exeption,$tabf) {
 	if( $dh = opendir($dir) ) {
 		if( $level2 < $niveau ) {
 			while(false !== ($entry = readdir($dh))) {
-				if( array_search($entry,$exeption) ) {
+				if( in_array($entry,$exeption) ) {
 					continue;
 				}
 				$path = str_replace("//","/",$dir."/".$entry);
@@ -79,7 +83,7 @@ foreach( $tab as $keyF => $valueF ) {
 		$mtab = explode(",",$valueF);
 		$time = $mtab[0];
 		$path = $mtab[1];
-		echo date("Y-m-d H:m:s",$time)." - ".$path."<br />\n";
+		echo date("Y-m-d H:i:s",$time)." - ".$path."<br />\n";
 	}
 
 }
